@@ -1,0 +1,135 @@
+
+<%- include('partials/header') %>
+
+<div class="container">
+    <h1>ToDo List</h1>
+
+    <% if( error ) { %>
+        <h2 style="color: red;"><%- error %> </h2>
+    <% } %>
+
+    <form action="/addtodoImg" method="post" class="todo-form" enctype="multipart/form-data" >
+      <select id="selectId" class="priority-select" name="priority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <input id="todoIp" type="text" class="input-box" placeholder="Enter your task..." name="task">
+      <input type="file" name="todoImg" id="imgId" class="add-button" ></input>
+      <button id="btnId" type="submit" class="add-button">Add Task</button>
+    </form>
+
+    <ul id="todo-items" class="todo-list">
+        <!-- <li class="todo-item">
+          I am Task 2
+          <div class="icons">
+            <button class="icon-button edit-btn"><i class="fas fa-edit"></i></button>
+            <button class="icon-button tick-btn"><i class="fas fa-check"></i></button>
+            <button class="icon-button remove-btn"><i class="fas fa-times"></i></button>
+          </div>
+        </li> -->
+      </ul>
+  </div>
+  <script src="../scripts/todoScript.js" ></script>
+
+</body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+    }
+
+    .navbar {
+      padding: 10px;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    .navbar a:hover {
+      color: #82bad1;
+    }
+
+    .container {
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .todo-form {
+      margin-top: 50px;
+    }
+
+    .input-box {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #82bad1;
+      border-radius: 5px;
+      color: #fff;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .priority-select {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #82bad1;
+      border-radius: 5px;
+      color: #fff;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .add-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #82bad1;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-button:hover {
+      background-color: #82bad1;
+    }
+
+    .todo-list {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 30px;
+      text-align: left;
+      color: white;
+    }
+
+    .todo-item {
+      background-color: #82bad1;
+      padding: 10px;
+      margin: 10px;
+      margin-left: 20%;
+      margin-right: 20%;
+      border-radius: 5px;
+      opacity: 1;
+    transition: opacity 0.3s ease;
+    }
+    .icons {
+  margin-top: 10px;
+  margin-left: auto;
+    }
+
+
+    .todo-item.completed {
+    opacity: 0.7;
+    }
+
+  </style>
+</html>
